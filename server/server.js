@@ -21,18 +21,17 @@ const sessionConfig = {
 
 app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
-
 app.use(session(sessionConfig));
 app.use(cookieParser('alsdufhalskudfhlkashdf'));
 app.use(express.static(path.join(__dirname, 'dist')));
 
-require('./server/config/database');
+require('./config/database');
 
-app.use('/api/books', require('./server/config/routes/book.routes'));
-app.use('/api/authors', require('./server/config/routes/author.routes'));
-app.use('/api/auth', require('./server/config/routes/auth.routes'));
+app.use('/api/books', require('./config/routes/book.routes'));
+app.use('/api/authors', require('./config/routes/author.routes'));
+app.use('/api/auth', require('./config/routes/auth.routes'));
 
-const catchAll = require('./server/config/routes/catch-all.routes');
+const catchAll = require('./config/routes/catch-all.routes');
 app.use(catchAll);
 
 app.listen(port, () => console.log(`listening on port ${ port }`));

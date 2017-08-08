@@ -10,6 +10,7 @@ import { User } from '../user';
 })
 
 export class HomeComponent {
+
   registrationErrors: string[] = [];
 
   user: User = new User();

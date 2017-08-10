@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Pipe({
   name: 'search',
@@ -10,9 +11,7 @@ export class SearchPipe implements PipeTransform {
     if (!Array.isArray(elements) || !filter) {
       return elements;
     }
-
     console.log('search pipe', elements);
-
     return elements.filter(element => this.filter(element, filter));
   }
 
@@ -24,7 +23,6 @@ export class SearchPipe implements PipeTransform {
         }
       }
     }
-
     return true;
   }
 }

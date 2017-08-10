@@ -1,4 +1,6 @@
-const Author = require('mongoose').model('Author');
+import * as mongoose from 'mongoose';
+require('../models/author');
+const Author = mongoose.model('AuthorModel');
 
 class AuthorsController {
   index(request, response) {

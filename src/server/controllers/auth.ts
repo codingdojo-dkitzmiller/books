@@ -1,4 +1,6 @@
-const User = require('mongoose').model('User');
+import * as mongoose from 'mongoose';
+require('../models/user');
+const User = mongoose.model('UserModel');
 
 module.exports = {
   login(request, response) {

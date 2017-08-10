@@ -12,15 +12,12 @@ import { BookService } from '../services/book.service';
 })
 
 export class BookListComponent implements OnInit {
+
   books: Array<Book> = [];
-
   selectedBook: Book;
-
   filter: Book = new Book();
 
-
-  constructor(private titleize: TitleizePipe, private bookService: BookService) {
-  }
+  constructor(private titleize: TitleizePipe, private bookService: BookService) { }
 
   ngOnInit() {
     this.getBooks();

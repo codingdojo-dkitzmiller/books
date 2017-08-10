@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
+import * as mongoose from 'mongoose';
 const { Schema } = mongoose;
+
 const authorSchema = new Schema({
   name: {
     type: String,
@@ -17,4 +18,4 @@ const authorSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Author', authorSchema);
+module.exports = mongoose.model('AuthorModel', authorSchema);

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
 import { Book } from '../book';
@@ -16,7 +17,7 @@ export class BookService {
     console.log('books from server');
     return this._http.get('/api/books')
       .map(data => data.json())
-      .toPromise();
+        .toPromise();
   }
 
   getBook(id: string): Promise<Book> {

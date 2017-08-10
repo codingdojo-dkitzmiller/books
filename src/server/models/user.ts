@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import * as mongoose from 'mongoose';
+require('../models/user');
 const bcrypt = require('bcrypt-as-promised');
 const validator = require('validator');
 const { Schema } = mongoose;
@@ -46,4 +47,4 @@ userSchema.statics.validatePassword = function(candidatePassword, hashedPassword
   return bcrypt.compare(candidatePassword, hashedPassword);
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('UserModel', userSchema);

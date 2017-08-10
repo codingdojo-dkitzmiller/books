@@ -11,7 +11,10 @@ export class TitleizePipe implements PipeTransform {
     if (typeof sentence !== 'string') {
       return sentence;
     }
-    const skippedWords = Array.isArray(processOrAltWords) ? processOrAltWords : TitleizePipe.skipWords;
+
+    let skippedWords: Array<string> = [];
+    skippedWords = Array.isArray(processOrAltWords) ? processOrAltWords : [...TitleizePipe.skipWords];
+
     const processSkipWords: boolean = processOrAltWords !== false;
 
     return sentence.replace(/\w[^-\s]*/g, (word, idx) => {

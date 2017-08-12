@@ -20,7 +20,7 @@ export class BookFormComponent implements OnInit {
 
   ngOnInit() {
     this.authorService.getAuthors()
-      .then(authors => this.authors = authors)
+      .then(authors => { console.log(authors); this.authors = authors; })
       .catch(() => {});
   }
 

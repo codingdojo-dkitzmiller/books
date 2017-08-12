@@ -3,7 +3,7 @@ const bookController = require('../../controllers/books');
 
 export function setupBookRoutes(app: Application) {
 
-    console.log('setupBookRoutes', JSON.stringify(app));
+    console.log('setupBookRoutes');
     app.route('/api/books').get(bookController.index);
     app.route('/api/books').post(bookController.create);
     app.route('/api/books/:id').put(bookController.update);

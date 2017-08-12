@@ -15,9 +15,9 @@
   <tbody>
     <tr [routerLink]="['/books', book._id]" *ngFor='let book of books | search:filter' [class.selected]='selectedBook === book' >
       <td>{{book._id}}</td>
-      <td>{{book.title | titleize:['of', 'a']}}</td>
+      <td>{{book.title | titleize: false}}</td>
       <td>{{book.year}}</td>
-      <td>{{book.author}}</td>
+      <td>{{book.author.name}}</td>
       <td (click) = 'onTdClick($event)'>
         <button (click) = 'removeBook(book)' class="btn btn-danger btn-sm">Remove</button>
       </td>

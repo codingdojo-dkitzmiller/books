@@ -14,10 +14,11 @@
       <!-- <input id='author' type="text" name='author' [(ngModel)]='book.author' #author='ngModel' class="form-control" required>
        -->
 
-       <select name="author" id="" [(ngModel)]='book.author'>
-         <option [value]="author._id" *ngFor='let author of authors'>{{author.name}}</option>
+       <select name="author" id="author" [(ngModel)]='book.author'>
+         <option [value]="author.name" *ngFor='let author of authors'>{{author.name}}</option>
        </select>
     </div>
+
     <div class="form-group">
       <label for="year">Year:</label>
       <input id="year" type="number" name='year' [(ngModel)]='book.year' #year='ngModel' class="form-control" required>

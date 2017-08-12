@@ -5,7 +5,15 @@ export const Book = mongoose.model('Book');
 module.exports = {
     index(request, response) {
         console.log(`Index route:`);
-        Book.find({})
+        Book.find({}).populate('author')
+            .exec(function(err, bks) {
+                if (err) {
+                    response.json([])
+                }
+                console.log('exec() => ');
+                console.log(bks);
+                response.json(bks);
+            })
             .then(function (books) {
                 response.status(200).json(books);
             })

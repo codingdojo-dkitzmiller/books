@@ -11,13 +11,13 @@ export class AuthorService {
   constructor(private http: Http) {}
 
   getAuthors(): Promise<Author[]> {
-    return this.http.get('/api/authors')
+    return this.http.get('/api/author')
       .map(response => response.json())
       .toPromise();
   }
 
   createAuthor(author: Author): Promise<Author> {
-    return this.http.post('/api/authors', author)
+    return this.http.post('/api/author', author)
       .map(data => data.json())
       .toPromise();
   }

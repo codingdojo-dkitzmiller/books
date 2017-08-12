@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const authorSchema = new Schema({
+export const Author = new Schema({
   name: {
     type: String,
     trim: true,
@@ -18,4 +18,4 @@ const authorSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('AuthorModel', authorSchema);
+module.exports = mongoose.model('Author', Author);

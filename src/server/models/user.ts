@@ -4,12 +4,14 @@ const bcrypt = require('bcrypt-as-promised');
 const validator = require('validator');
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const User = new Schema({
   username: {
     type: String,
     required: true,
     trim: true,
     unique: true,
+    lowercase: true,
+    index: true
   },
 
   email: {
@@ -32,7 +34,7 @@ const userSchema = new Schema({
   timestamps: true
 });
 
-userSchema.pre('save', function(next) {
+User.pre('save', function(next) {
   if (!this.isModified('password')) { return next(); }
 
   bcrypt.hash(this.password, 10)
@@ -43,8 +45,8 @@ userSchema.pre('save', function(next) {
     .catch(next);
 });
 
-userSchema.statics.validatePassword = function(candidatePassword, hashedPassword) {
+User.statics.validatePassword = function(candidatePassword, hashedPassword) {
   return bcrypt.compare(candidatePassword, hashedPassword);
 };
 
-module.exports = mongoose.model('UserModel', userSchema);
+module.exports = mongoose.model('User', User);

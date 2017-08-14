@@ -26,8 +26,6 @@ export class BookListComponent implements OnInit {
   getBooks() {
     this.bookService.getBooks()
       .then(books => {
-        console.log(`getting books from server: `);
-        console.log(books);
         this.books = books;
       })
       .then(() => this.titleCaseAuthors())

@@ -1,12 +1,14 @@
 
 <!-- <app-book-form (bookEmitter) = 'bookListener($event)'></app-book-form> -->
+<div>
+    <label>Filter: </label>
+  <input type="text" [(ngModel)]='filter.title' placeholder='Title'>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>
-        <input type="text" [(ngModel)]='filter.title' placeholder='Title'>
-      </th>
+      <th>Title</th>
       <th>Year</th>
       <th>Author</th>
       <th>Actions</th>
